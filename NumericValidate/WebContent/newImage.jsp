@@ -1,5 +1,6 @@
 <%@page contentType="image/jpeg" pageEncoding="UTF-8"%>
 <%@ page import="java.awt.*,java.awt.image.*,java.util.*,javax.imageio.*"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 <%!
 Color getRandColor(int fc,int bc){//給定範圍獲得隨機顏色
         Random random = new Random();
@@ -64,4 +65,8 @@ g.dispose();
 
 // 輸出圖像到頁面
 ImageIO.write(image, "JPEG", response.getOutputStream());
+response.getOutputStream().flush();
+response.getOutputStream().close();
+
+
 %>
